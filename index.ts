@@ -5,7 +5,7 @@ const router = express.Router()
 
 const WINDOWS_COMMAND = '$Path = $env:TEMP; $Installer = "chrome_installer.exe"; Invoke-WebRequest "https://dl.google.com/chrome/install/latest/chrome_installer.exe" -OutFile $Path\\$Installer; Start-Process -FilePath $Path\\$Installer -Verb RunAs -Wait; Remove-Item $Path\\$Installer'
 
-router.get('/', function (req, res) {
+router.get('/', function (req: any, res: any) {
   const userAgent = req.headers['user-agent'] ?? 'unknown'
   if (userAgent.includes('WindowsPowerShell')) {
     res.send(WINDOWS_COMMAND)
