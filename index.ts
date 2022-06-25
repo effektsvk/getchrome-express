@@ -12,11 +12,11 @@ router.get('/', function (req: any, res: any) {
   } else if (userAgent.includes('curl')) {
     res.send('Linux/Mac is not supported yet.\n')
   } else {
-    res.sendFile(path.resolve(__dirname, './client/build', 'index.html'))
+    res.sendFile(path.resolve(__dirname, './build', 'index.html'))
   }
 })
 
 app.use(router)
-app.use(express.static(path.resolve(__dirname, './client/build')))
+app.use(express.static(path.resolve(__dirname, './build')))
 
 app.listen(80)
